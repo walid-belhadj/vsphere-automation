@@ -17,8 +17,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 pwd = getpass.getpass("Enter your AD password : ")
 vsphere_client = create_vsphere_client(
-		server='172.20.2.8',
-		username='wbelhadj@cns-com.com',
+		server='ip-server',
+		username='username',
 		password=pwd,
 		session=session)
 print('\n')
