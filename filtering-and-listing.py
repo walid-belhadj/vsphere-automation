@@ -14,9 +14,9 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 vsphere_client = create_vsphere_client(
-		server='172.20.2.8',
-		username='wbelhadj@cns-com.com',
-		password="rootroot",
+		server='ip-server',
+		username='username',
+		password="password",
 		session=session)
 
 #vms=None, names=None, folders=None, datacenters=None, hosts=None, clusters=None, resource_pools=None, power_states=None
@@ -24,7 +24,7 @@ network_name = input("Enter a Network name: ")
 network_id = vsphere_client.vcenter.Network.list(
         Network.FilterSpec(names={network_name},
                            types={Network.Type.DISTRIBUTED_PORTGROUP}))[0].network
-print(network_id)
+
 filter = vsphere_client.vcenter.VM.list(vsphere_client.vcenter.VM.FilterSpec(networks={network_id}))
 with open('vm_list_by_network.json', 'w') as outfile:
 	for vm in filter:
@@ -71,7 +71,7 @@ with open('vm_list_by_network.json', 'w') as outfile:
 		outfile.write("\n")
 		outfile.write(str(json.dumps(vars(vm), indent=4)))
 
-"""
+
 """
 resource_pool_id = vsphere_client.vcenter.ResourcePool.list(ResourcePool.FilterSpec(clusters={cluster_id}))[
                 0].resource_pool
@@ -79,4 +79,4 @@ resource_pool_id = vsphere_client.vcenter.ResourcePool.list(ResourcePool.FilterS
 datastore_id = vsphere_client.vcenter.Datastore.list(Datastore.FilterSpec(names={datastore_name}))[0].datastore
 """
 
-#
+
