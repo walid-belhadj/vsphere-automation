@@ -10,8 +10,8 @@ session = requests.session()
 session.verify = False
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 pwd = getpass.getpass("Enter Password: ")
-client = create_vsphere_client(server='172.20.2.8',
-                               username='wbelhadj@cns-com.com',
+client = create_vsphere_client(server='ip-server',
+                               username='username',
                                password=pwd,
                                session=session)
 vm = client.vcenter.VM.list(client.vcenter.VM.FilterSpec(names={'VGR-VM-micro-cloned'}))[0]
