@@ -67,16 +67,16 @@ class CreateExhaustiveVM(object):
     def run(self):
         # Get a placement spec
 
-        datacenter_name = 'LAB-TOULOUSE'
+        datacenter_name = 'vcenter'
         vm_folder_name = 'VGR-LAB-CISCO-ACI'
-        datastore_name = 'FRTLS-LAB-P-ESX2 Datastore'
-        std_portgroup_name = 'CNS.Paris.172.20.2'
+        datastore_name = 'datastorename'
+        std_portgroup_name = 'xxxxxxxxxxxx'
         dv_portgroup_name = '25-LAB-TRAINING-SANDBOX'
 
         get_dc = input("Enter the datacenter name: ")
         get_folder = input("Enter the folder name: ")
         get_datastore = input("Enter the datastore name: ")
-        get_sdr_prtgrp = input("Enter the portgroupname name (standard: CNS.Paris.172.20.2) : ")
+        get_sdr_prtgrp = input("Enter the portgroupname name (standard: xxxxxxxxx) : ")
         get_dst_prtgrp = input("Enter the distributedportgroup name: ")
 
         if not self.placement_spec:
@@ -128,7 +128,7 @@ class CreateExhaustiveVM(object):
         Use guest and system provided defaults for remaining configuration settings.
         """
 
-        iso_datastore_path = '[FRTLS-LAB-P-ESX2 Datastore]EVE.iso'
+        iso_datastore_path = '[pathtoisofile]EVE.iso'
         serial_port_network_location ='SERIAL_PORT_NETWORK_SERVER_LOCATION'
         iso_path= input('Enter the path to the image (go to the right datastore and copy paste the full path to the image): ')
         nbr_cpu = input("Enter number of cpu: ")
